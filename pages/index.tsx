@@ -10,10 +10,17 @@ export default function Home() {
 
   return (
     <>
-      <h1>Ola Mundo!</h1>
+      <h1>Ola Mundo! {process.env.NEXT_PUBLIC_TESTE}</h1>
       <Pessoa nome='Gilmar' idade={idadeGilmar}/>
       <Pessoa nome='Ana Cristina' idade={35}/>
-      <button onClick={incrementaIdadeGilmar}>Incrementa idade do Gilmar</button>
+
+      {pessoas.map(({ nomePessoa, idadePessoa}, index) => {
+        return<Pessoa
+        nome={nomePessoa}
+        idade={idadePessoa}
+        key={index}
+        />
+      })}
     </>
   )
 }
